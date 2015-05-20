@@ -21,12 +21,14 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     [self setupMutableData];
+    
+    
 }
 
 - (void)setupMutableData{
     NSMutableArray *sampleMutable = [[NSMutableArray alloc] initWithArray:@[@(1), @(2)]];
     
-    //subclass不能调用super的category
+    // subclass不能调用super的category
     /*
      crash: unrecognized selector
      */
@@ -36,6 +38,8 @@
 
 - (void)setupData{
     NSArray *sample = @[@(1), @(2)];
+    
+    // super不能调用subclass的category
     [sample writeToPlistFile:@"FILEPATH"];
 }
 
